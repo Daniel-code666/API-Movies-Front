@@ -1,0 +1,19 @@
+<br>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/img/Movie-Genres-List.jpg" style="margin-top: 5px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Agregar categoría</h5>
+                <form [formGroup]="addCatForm" (ngSubmit)="addCategory()">
+                    Nombre de categoría:
+                    <input [class.is-invalid]="addCatForm.get('name').touched && addCatForm.get('name').invalid"
+                        type="text" class="form-control" formControlName="name">
+                    <br>
+                    <button class="btn btn-primary" type="submit">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

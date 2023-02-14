@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <img src="../../../assets/img/skull-fire.gif" alt="Logo" width="60" height="46"
+            class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="/" style="color:white">Movies App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="color:white">
+                        Películas
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="home">Ver lista de películas</a></li>
+                        <li><a class="dropdown-item" routerLink="/searchmovies">Buscar película por nombre</a></li>
+                        <li *ngIf="isAdmin"><a class="dropdown-item" [routerLink]="['/admmovies']">Administrar películas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="color:white">
+                        Categorías
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="category">Ver categorías</a></li>
+                        <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="admcategory">Administrar categorías</a></li>
+                    </ul>
+                </li>
+                <li *ngIf="!isLogged">
+                    <a class="nav-link active" aria-current="page" style="color:white" href="#">Registrarse</a>
+                </li>
+                <a class="nav-link active" aria-current="page" style="color:white" *ngIf="isAdmin" 
+                    routerLink="users">
+                    Ver usuarios
+                </a>
+            </ul>
+
+            <div *ngIf="!isLogged; else logout" class="d-flex">
+                <button class="btn btn-success" routerLink="login">Ingresar</button>
+            </div>
+            <ng-template #logout>
+                <div class="d-flex">
+                    <button (click)="log_out()" class="btn btn-success">Salir</button>
+                </div>
+            </ng-template>
+
+            <!-- <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+        </div>
+    </div>
+</nav>

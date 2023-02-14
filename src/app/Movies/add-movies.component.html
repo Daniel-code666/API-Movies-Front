@@ -1,0 +1,44 @@
+<br>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/img/Movie-Genres-List.jpg" style="margin-top: 5px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Agregar película</h5>
+                <form [formGroup]="addMovForm" (ngSubmit)="addMovie()">
+                    Título:
+                    <input [class.is-invalid]="addMovForm.get('title').touched && addMovForm.get('title').invalid"
+                        type="text" class="form-control" formControlName="title">
+                    Descripción:
+                    <input
+                        [class.is-invalid]="addMovForm.get('description').touched && addMovForm.get('description').invalid"
+                        type="text" class="form-control" formControlName="description">
+                    Duración:
+                    <input [class.is-invalid]="addMovForm.get('duration').touched && addMovForm.get('duration').invalid"
+                        type="number" class="form-control" formControlName="duration">
+                    Rating:
+                    <select name="rating" formControlName="rating" id="rating" class="form-select">
+                        <option selected value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    Categoría:
+                    <select name="categoryId" id="categoryId" formControlName="categoryId" class="form-select">
+                        <option *ngFor="let category of categories" [value]="category.id">
+                            {{category.name}}
+                        </option>
+                    </select>
+                    Imagen:
+                    <div class="mb-3">
+                        <input class="form-control form-control-sm"  id="formFileSm" 
+                            type="file" (change)="onFileSelect($event)">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" type="submit">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

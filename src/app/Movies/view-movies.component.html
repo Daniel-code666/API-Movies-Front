@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/img/Movie-Genres-List.jpg" style="margin-top: 5px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Actualizar película</h5>
+                <form [formGroup]="updtMovForm">
+                    Título:
+                    <input [class.is-invalid]="updtMovForm.get('title').touched && updtMovForm.get('title').invalid"
+                        type="text" class="form-control" formControlName="title" readonly>
+                    Descripción:
+                    <input
+                        [class.is-invalid]="updtMovForm.get('description').touched && updtMovForm.get('description').invalid"
+                        type="text" class="form-control" formControlName="description" readonly>
+                    Duración:
+                    <input [class.is-invalid]="updtMovForm.get('duration').touched && updtMovForm.get('duration').invalid"
+                        type="number" class="form-control" formControlName="duration" readonly>
+                    Rating:
+                    <select name="rating" formControlName="rating" id="rating" class="form-select">
+                        <option *ngFor="let ratingA of ratingsArr" [selected]="ratingA == rating">
+                            {{ ratingA }}
+                        </option>
+                    </select>
+                    Categoría:
+                    <select name="categoryId" id="categoryId" formControlName="categoryId" class="form-select">
+                        <option *ngFor="let category of categories" [selected]="category.id == categoryId" [value]="category.id">
+                            {{category.name}}
+                        </option>
+                    </select>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

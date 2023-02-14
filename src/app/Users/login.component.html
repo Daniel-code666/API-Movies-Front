@@ -1,0 +1,24 @@
+<br>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <br>
+            <img src="../../assets/img/login.png" width="100px" height="215px"  class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Iniciar sesión</h5>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    Usuario:
+                    <input [class.is-invalid]="loginForm.get('nickName').touched && loginForm.get('nickName').invalid"
+                        type="text" class="form-control" formControlName="nickName">
+                    Contraseña:
+                    <input [class.is-invalid]="loginForm.get('password').touched && loginForm.get('password').invalid"
+                        type="password" class="form-control" formControlName="password">
+                    <br>
+                    <button class="btn btn-primary" type="submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

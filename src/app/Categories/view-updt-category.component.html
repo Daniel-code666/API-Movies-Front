@@ -1,0 +1,21 @@
+<br>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/img/Movie-Genres-List.jpg" style="margin-top: 5px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Editar categoría</h5>
+                <form [formGroup]="updtCatForm" (ngSubmit)="updtCategory()">
+                    Nombre de categoría:
+                    <input [class.is-invalid]="updtCatForm.get('name').touched && updtCatForm.get('name').invalid"
+                        type="text" class="form-control" formControlName="name">
+                    <input type="hidden">
+                    <br>
+                    <button class="btn btn-primary" type="submit">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
